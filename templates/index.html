@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block header %}GM App{% endblock %}
+
+{% block content %}
+
+<main>
+    <section>
+        <div class="column">
+            <label for="prof_list"><h3>Proficiencies</h3></label>
+                <select id="prof_list" size="{{proficiencies|length}}">
+                    {% for proficiency in proficiencies: %}
+                        <option value="{{proficiency}}">{{ proficiency }}</option>
+                    {% endfor %}
+                    {% for lore in lores: %}
+                        <option value="{{lore}}">{{ lore }}</option>
+                    {% endfor %}
+                </select>
+        </div>
+        <div class="column">
+            <label for="char_list"><h3>Characters</h3></label>
+            <select id="char_list" size="{{stat_list|length}}" multiple>
+                {% for name in names: %}
+                <option id="stat_list[name]_opt" value="{{stat_list[name]['name']}}">{{ stat_list[name]['name']}} level 
+                        {{stat_list[name]['level']}} {{stat_list[name]['ancestry']}} {{stat_list[name]['class']}}, 
+                        {{stat_list[name]['background']}}, AC: {{stat_list[name]['AC']}}</option>
+                {% endfor %}
+            </select>
+            <div id="output_box">
+            <div id="anchor"></div>
+            </div>
+            <button id="roll_it" onclick="roll(dataset)">Roll it!</button>
+            <form method="POST" action="/load">
+                <input type="text" id="f_id" name="f_id">
+                <input type="submit" value="Load">
+            </form>
+        </div>
+        <div class="column">
+            <h3>Turn Order</h3>
+            <div id="turn_order">
+                <div id="turn_count_box">
+                    <div>
+                        <p>Turn: </p>
+                    </div>
+                    <div id="turn_counter"></div>
+                </div>
+            </div>
+            <div class="turn_controls">
+                <input type="text" id="turn_name">
+                <input type="text" id="turn_num">
+                <button id="add_turn" onclick="add_turn()">Add Turn</button> 
+            </div>
+            <div class="turn_controls">
+                <button id="clear" onclick="clear_initiative()">Clear</button>
+                <button id="sort" onclick="sort()">Sort</button>
+                <button id="next_turn" onclick="next_turn()">Next</button>
+            </div>
+    </section>
+    <section>
+        <div></div>
+    </section>
+    <script src="{{url_for('static', filename='roll_it.js')}}"></script>
+    <script>const data = {{ stat_list|tojson }};</script>
+</main>
+<footer>
+    <p>Copyright Daniel Meyer 2024</p>
+</footer>
+{% endblock %}

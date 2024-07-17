@@ -1,0 +1,130 @@
+html {
+    background-color: #292929;
+    color: whitesmoke;
+}
+
+body {
+    max-width: 1200px;
+    display: block;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+main, header {
+    background-color: #0b0d1c;
+    margin-bottom: 15px;
+}
+form {
+    margin-top: 15px;
+}
+
+.column {
+    margin: 0 25px;
+    display: block;
+}
+#prof_list {
+    width: 130px;
+    margin-bottom: 15px;
+}
+#char_list {
+    width: 500px;
+}
+section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    
+}
+select {
+    background-color: #0b0d1c;
+    color: whitesmoke;
+    font-size: medium;
+}
+option:checked {
+    background-color: salmon;
+    color: #0b0d1c;
+}
+#output_box {
+    width: 496px;
+    height: 276px;
+    border: whitesmoke inset 2px;
+    margin: 15px 0;
+    overflow: scroll;
+    
+}
+#anchor {
+    overflow-anchor: auto;
+    height: 1px;
+    width: 2px;
+}
+.text_output {
+    margin: 5px 0;
+    font-size: 12pt;
+    overflow-anchor: none;
+}
+#roll_it {
+    width: 500px;
+    height: 20px;
+    text-align: center;
+    font-size: medium;
+}
+#turn_order {
+    border: whitesmoke inset 2px;
+    width: 350px;
+    height: 366px;
+    margin-bottom: 15px;
+}
+#turn_count_box {
+    border-bottom: whitesmoke inset 2px;
+    vertical-align: top;
+    height: 25px;
+    width: 350px;
+    display: inline-flex;
+}
+#turn_count_box div {
+    margin: 2px;
+}
+#turn_count_box p {
+    margin: 0;
+}
+#add_turn, #next_turn, #clear, #sort {
+    height: 23px;
+    width: 70px;
+    vertical-align: top;
+}
+#next_turn {
+    width: 181px;
+}
+#clear {
+    background-color: darkred;
+    border-color: red;
+    color: whitesmoke;
+}
+#turn_num {
+    width: 25px;
+    height: 17px;
+    vertical-align: top;
+}
+#turn_name {
+    width: 210px;
+    height: 17px;
+    vertical-align: top;
+}
+.turn_controls{
+    height: 25px;
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+footer {
+    background-color: #0b0d1c;
+    padding: 10 auto;
+    height: 50px;
+}
+footer p {
+    padding: 15px;
+}
