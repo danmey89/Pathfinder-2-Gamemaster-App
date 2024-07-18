@@ -35,7 +35,12 @@ def index():
 @bp.route('/load', methods=['POST'])
 def load():
     f_id = request.form['f_id']
-    update_db(db=get_db(), id=f_id)
+    overwrite = request.form.get('overwrite') == True
+
+    if f_id != '':
+        update_db(db=get_db(), id=f_id, overwrite=overwrite)
+
+    print(overwrite)
 
     return '', 204
 

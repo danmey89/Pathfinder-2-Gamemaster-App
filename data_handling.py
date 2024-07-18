@@ -106,7 +106,7 @@ def update_db(db, id=277823, overwrite=False):
     ).fetchall()
     columns = [k[0] for k in columns]
 
-
+    print(id)
     character = get_character(id)
     unknown = {}
     for key in character:
